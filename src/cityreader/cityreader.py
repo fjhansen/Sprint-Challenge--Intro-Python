@@ -87,4 +87,18 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
+  # Haversine formula to find difference between lat and lon
+
+  dlon = lon2 - lon1
+  dlat = lat2 - lat1
+
+
+  for i in cities:
+    # normalizing so order does not change output
+    if int(i.lat) in range(lat1, lat2) or int(i.lat) in range(lat2, lat1):
+      if int(i.lon) in range(lon1, lon2) or int(i.lon) in range(lon2, lon1):
+        within.append(i)
+
+  
+
   return within
